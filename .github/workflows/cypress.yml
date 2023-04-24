@@ -1,26 +1,36 @@
-
 name: Cypress Tests
 
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          node-version: '18.x'
+
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
       - name: Start server
-        run: npm start
+        run: npm run start
+
       - name: Wait for server
         run: |
-          npm install wait-on -g
-          wait-on http://localhost:4100 --timeout 30000
+          npm install wait-on
+          wait-on http://localhost:4100
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v2
         with:
