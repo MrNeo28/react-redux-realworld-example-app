@@ -1,0 +1,7 @@
+{
+  "username": "ashish vishw",
+  "email": "ashish_neo@mailinator.com",
+  "password": "Pa$$w0rd!",
+  "body": "Fixtures are a great way to mock data for responses to routes",
+  "apiUrl": "https://conduit.productionready.io/api"
+}

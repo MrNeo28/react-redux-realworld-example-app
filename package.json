@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@cypress/grep": "3.1.5",
+    "@cypress/xpath": "2.0.3",
+    "@faker-js/faker": "7.6.0",
+    "@testing-library/cypress": "9.0.0",
     "cross-env": "^5.1.4",
-    "react-scripts": "1.1.1"
+    "cypress": "12.10.0",
+    "cypress-mochawesome-reporter": "3.4.0",
+    "cypress-wait-until": "1.7.2",
+    "react-scripts": "1.1.1",
+    "typescript": "5.0.4"
   },
   "dependencies": {
+    "cypress-tags": "1.1.2",
     "history": "^4.6.3",
     "marked": "^0.3.6",
     "prop-types": "^15.5.10",
@@ -26,6 +35,9 @@
     "start": "cross-env PORT=4100 react-scripts start",
     "build": "react-scripts build",
     "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:ci": "cypress run --config baseUrl=http://localhost:4100"
   }
 }
