@@ -8,10 +8,6 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2] # Uses 2 parallel instances
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -32,4 +28,3 @@ jobs:
         with:
           start: npx start-server-and-test start http://localhost:4100 cypress
           wait-on: 'http://localhost:4100'
-          parallel: true
