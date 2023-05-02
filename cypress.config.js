@@ -6,7 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-    baseUrl: "http://localhost:4100",
+    baseUrl: "http://localhost:3000",
     screenshotOnRunFailure: true,
     video: true,
   },
