@@ -7,14 +7,11 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
     },
     baseUrl: "http://localhost:4100",
-    screenshotOnRunFailure: true,
-    retries: 2,
-    projectId: 'a7bq2k',
+    screenshotOnRunFailure: true
   },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     reportPageTitle: 'Automation Report',
-    embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
   },
