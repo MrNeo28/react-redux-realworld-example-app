@@ -22,14 +22,6 @@ jobs:
 
       - name: Build application
         run: npm run build
-
-      - name: Start server
-        run: npm start
-
-      - name: Wait for server
-        run: |
-          npm install wait-on
-          wait-on http://localhost:4100 --timeout 60000
           
       - name: Run Cypress tests
         uses: cypress-io/github-action@v3
@@ -37,5 +29,5 @@ jobs:
           browser: chrome
           record: true
           start: |
-            npm run cy:run
+            npx start-server-and-test start http://localhost:4100 cypress
           wait-on: 'http://localhost:4100'
