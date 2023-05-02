@@ -7,7 +7,8 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
     },
     baseUrl: "http://localhost:4100",
-    screenshotOnRunFailure: true
+    screenshotOnRunFailure: true,
+    projectId: "su3jqa",
   },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
