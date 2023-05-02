@@ -12,9 +12,11 @@
     "cypress-mochawesome-reporter": "3.4.0",
     "cypress-wait-until": "1.7.2",
     "react-scripts": "1.1.1",
+    "start-server-and-test": "2.0.0",
     "typescript": "5.0.4"
   },
   "dependencies": {
+    "@cypress/react": "7.0.3",
     "cypress-tags": "1.1.2",
     "history": "^4.6.3",
     "marked": "^0.3.6",
@@ -28,16 +30,22 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.1",
+    "serve": "14.2.0",
     "superagent": "^3.8.2",
     "superagent-promise": "^1.1.0"
   },
   "scripts": {
     "start": "cross-env PORT=4100 react-scripts start",
+    "start-server": "npm start",
+    "ec2-dev": "CI=true;export CI; react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env PORT=4100 react-scripts test --env=jsdom",
+    "e2e": "ng run app:cypress-run",
+    "test": "cypress run",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:run:ci": "cypress run --config baseUrl=http://localhost:4100"
-  }
+    "cy:run:ci": "cypress run --config baseUrl=http://localhost:4100",
+    "ci": "start-server-and-test start http://localhost:4100 cypress",
+    "cypress": "cypress run"
+    }
 }

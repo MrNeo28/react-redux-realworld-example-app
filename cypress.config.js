@@ -6,9 +6,10 @@ module.exports = defineConfig({
       // implement node event listeners here
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-    baseUrl: "http://localhost:3000",
+    baseUrl: "http://localhost:4100",
     screenshotOnRunFailure: true,
     video: true,
+    retries: 2,
   },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
@@ -20,5 +21,6 @@ module.exports = defineConfig({
   env: {
     // implement environment variables here
     apiUrl: "https://conduit.productionready.io/api",
+    grepTags: "@login @register @article",
   },
 });
