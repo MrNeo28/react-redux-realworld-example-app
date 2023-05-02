@@ -8,6 +8,10 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2] # Uses 2 parallel instances
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,10 +28,11 @@ jobs:
         run: npm run build
           
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v4
         with:
-          browser: chrome
-          record: true
-          start: |
-            npx start-server-and-test start http://localhost:4100 cypress
+          start: npx start-server-and-test start http://localhost:4100 cypress
           wait-on: 'http://localhost:4100'
+          record: true
+          parallel: true
+          env: 
+            CYPRESS_RECORD_KEY:${{ secrets.CYPRESS_RECORD_KEY }}
