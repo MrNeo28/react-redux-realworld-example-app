@@ -24,7 +24,9 @@ jobs:
         run: npm run build
 
       - name: Start server
-        run: npm serve -s build
+        run: |
+            npm install -g serve
+            npm serve -s build
 
       - name: Wait for server
         run: |
