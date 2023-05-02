@@ -24,7 +24,8 @@ jobs:
         run: npm run build
           
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v5
         with:
           start: npx start-server-and-test start http://localhost:4100 cypress
+          spec: cypress/e2e/home.cy.ts
           wait-on: 'http://localhost:4100'
