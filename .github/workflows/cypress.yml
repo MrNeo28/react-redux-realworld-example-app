@@ -18,7 +18,7 @@ jobs:
           node-version: '18.x'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build application
         run: npm run build
@@ -37,5 +37,5 @@ jobs:
           browser: chrome
           record: true
           start: |
-            npm run cypress:run
+            npm run cy:run
           wait-on: 'http://localhost:4100'
