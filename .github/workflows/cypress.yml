@@ -24,12 +24,12 @@ jobs:
         run: npm run build
 
       - name: Start server
-        run: npm run start
+        run: npm serve -s build
 
       - name: Wait for server
         run: |
           npm install wait-on
-          wait-on http://localhost:4100
+          wait-on http://localhost:3000
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v2
@@ -38,4 +38,4 @@ jobs:
           record: true
           start: |
             npm run cypress:run
-          wait-on: 'http://localhost:4100'
+          wait-on: 'http://localhost:3000'
