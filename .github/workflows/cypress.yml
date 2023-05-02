@@ -30,7 +30,7 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v4
         with:
-          start: npx start-server-and-test start http://localhost:4100 cypress run --spec cypress/e2e/navigate.cy.ts
+          start: npx start-server-and-test start http://localhost:4100 cypress
           wait-on: 'http://localhost:4100'
           record: true
           parallel: true
