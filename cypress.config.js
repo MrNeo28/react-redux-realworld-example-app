@@ -8,7 +8,6 @@ module.exports = defineConfig({
     },
     baseUrl: "http://localhost:4100",
     screenshotOnRunFailure: true,
-    video: true,
     retries: 2,
   },
   reporter: 'cypress-mochawesome-reporter',
